@@ -6,7 +6,7 @@ public class Task2 {
         double secondWeight = 82.7;
 
         double sum = firstWeight + secondWeight;
-        double diff = secondWeight - firstWeight;
+        double diff = Math.abs(secondWeight - firstWeight);
 
         System.out.println(sum);
         System.out.println(diff);
