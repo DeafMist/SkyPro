@@ -20,11 +20,11 @@ public class Tasks {
     private static void task2() {
         int age = 19;
 
-        if (age >= 7) {
+        if (age >= 7 && age < 18) {
             System.out.println("Ты ходишь в школу");
         }
 
-        if (age >= 18) {
+        if (age >= 18 && age < 24) {
             System.out.println("Можешь отправляться учиться в университет");
         }
 
@@ -129,11 +129,14 @@ public class Tasks {
         int three = 12;
 
 
-        if (one >= two && one >= three) {
+        if (one > two && one > three) {
             System.out.println(one);
         }
-        else if (two >= one && two >= three) {
+        else if (two > one && two > three) {
             System.out.println(two);
+        }
+        else if (one == two && one == three) {
+            System.out.println("Все три числа равны");
         }
         else {
             System.out.println(three);
