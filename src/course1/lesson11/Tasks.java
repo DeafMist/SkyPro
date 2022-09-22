@@ -1,12 +1,18 @@
 package course1.lesson11;
 
+import java.time.LocalDate;
+
 public class Tasks {
     public static void main(String[] args) {
-
+        isALeapYear(LocalDate.now().getYear());
+        System.out.println();
+        needLightOrFullVersion(0, LocalDate.now().getYear());
+        System.out.println();
+        System.out.println("Количество дней доставки - " + calculateDeliveryTime(2000));
     }
 
     private static void isALeapYear(int year) {
-       if (year % 4 != 0 || year % 100 == 0 && year % 400 != 0) {
+       if (year % 4 != 0 || (year % 100 == 0 && year % 400 != 0)) {
             System.out.println(year + " год не является високосным");
         }
         else {
@@ -16,14 +22,11 @@ public class Tasks {
 
     private static void needLightOrFullVersion(int clientOS, int clientDeviceYear) {
         String name = "";
-        switch (clientOS) {
-            case 0:
-                name = "IOS";
-                break;
-
-            case 1:
-                name = "Android";
-                break;
+        if (clientOS == 0) {
+            name = "IOS";
+        }
+        else {
+            name = "Android";
         }
 
         if (clientDeviceYear < 2015) {
@@ -35,15 +38,15 @@ public class Tasks {
     }
 
     private static int calculateDeliveryTime(int deliveryDistance) {
-        int days = 0;
-        if (deliveryDistance < 20) {
-            days = 1;
-        }
-        else if (deliveryDistance >= 20 && deliveryDistance < 60) {
-            days = 2;
-        }
-        else {
-            days = 3;
+        int days = 1;
+        deliveryDistance -= 19;
+
+        if (deliveryDistance > 0) {
+            days += deliveryDistance / 40;
+            
+            if (deliveryDistance % 40 != 0) {
+                days += 1;
+            }
         }
 
         return days;
