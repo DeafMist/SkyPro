@@ -12,15 +12,12 @@ public class Task {
     private static String removeDuplicates(String[] elems) {
         Map<String, Integer> map = new LinkedHashMap<>();
 
+        String total = "";
         for (String elem : elems) {
             if (!map.containsKey(elem)) {
                 map.put(elem, 1);
+                total += elem;
             }
-        }
-
-        String total = "";
-        for (String elem : map.keySet()) {
-            total += elem;
         }
 
         return total;
