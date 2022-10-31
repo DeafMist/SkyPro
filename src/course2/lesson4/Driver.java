@@ -4,14 +4,16 @@ import course2.lesson4.transport.Transport;
 
 import java.util.Objects;
 
-public abstract class Driver {
+public abstract class Driver <A extends Transport> {
     private String fio;
 
     private boolean hasLicense;
 
     private final int experience;
 
-    public Driver(String fio, boolean hasLicense, int experience) {
+    private A car;
+
+    public Driver(String fio, boolean hasLicense, int experience, A car) {
         setFio(fio);
         isHasLicense();
 
@@ -19,7 +21,12 @@ public abstract class Driver {
             experience = Math.abs(experience);
         }
 
+        if (car == null) {
+            throw new IllegalArgumentException("У водителя должна быть машина");
+        }
+
         this.experience = experience;
+        this.car = car;
     }
 
     public void startMoving() {
@@ -58,6 +65,10 @@ public abstract class Driver {
 
     public int getExperience() {
         return experience;
+    }
+
+    public A getCar() {
+        return car;
     }
 
     @Override

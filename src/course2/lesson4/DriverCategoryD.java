@@ -1,21 +1,11 @@
 package course2.lesson4;
 
 import course2.lesson4.transport.Bus;
+import course2.lesson4.transport.Transport;
 
 public class DriverCategoryD <A extends Bus> extends Driver{
-    private final A car;
-
     public DriverCategoryD(String fio, boolean hasLicense, int experience, A car) {
-        super(fio, hasLicense, experience);
-
-        if (car == null) {
-            throw new IllegalArgumentException("У водителя должна быть машина");
-        }
-        this.car = car;
-    }
-
-    public A getCar() {
-        return car;
+        super(fio, hasLicense, experience, car);
     }
 
     @Override
