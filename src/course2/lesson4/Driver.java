@@ -83,4 +83,10 @@ public abstract class Driver <A extends Transport> {
     public int hashCode() {
         return Objects.hash(fio, hasLicense, experience);
     }
+
+    @Override
+    public String toString() {
+        return "Водитель " + getFio() + " управляет автомобилем " + getCar().getBrand() + " " + getCar().getModel() +
+                " и будет участвовать в заездe";
+    }
 }
