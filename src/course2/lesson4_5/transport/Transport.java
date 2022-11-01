@@ -1,6 +1,6 @@
-package course2.lesson4.transport;
+package course2.lesson4_5.transport;
 
-import course2.lesson4.Main;
+import course2.lesson4_5.Main;
 
 import java.util.Objects;
 
@@ -24,6 +24,8 @@ public abstract class Transport {
     public abstract void startMoving();
 
     public abstract void endMoving();
+
+    public abstract void printType();
 
     public String getBrand() {
         return brand;

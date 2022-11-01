@@ -1,14 +1,44 @@
-package course2.lesson4.transport;
+package course2.lesson4_5.transport;
 
 import java.time.LocalTime;
 
 public class Truck extends Transport implements Competing {
+    public enum TypeLoadCapacity {
+        N1(0, 3.5),
+        N2(3.5, 12),
+        N3(12, Double.MAX_VALUE);
+
+        private final double from;
+
+        private final double to;
+
+        TypeLoadCapacity(double from, double to) {
+            this.from = from;
+            this.to = to;
+        }
+
+        public double getFrom() {
+            return from;
+        }
+
+        public double getTo() {
+            return to;
+        }
+    }
+
+    private final TypeLoadCapacity typeLoadCapacity;
+
     public Truck(String brand, String model) {
-        super(brand, model);
+        this(brand, model, 1.5);
     }
 
     public Truck(String brand, String model, double engineVolume) {
+        this(brand, model, engineVolume, null);
+    }
+
+    public Truck(String brand, String model, double engineVolume, TypeLoadCapacity typeLoadCapacity) {
         super(brand, model, engineVolume);
+        this.typeLoadCapacity = typeLoadCapacity;
     }
 
     @Override
@@ -19,6 +49,16 @@ public class Truck extends Transport implements Competing {
     @Override
     public void endMoving() {
         System.out.println("Грузовой автомобиль заканчивает движение");
+    }
+
+    @Override
+    public void printType() {
+        if (typeLoadCapacity == null) {
+            System.out.println("Данных об авто недостаточно");
+        }
+        else {
+            System.out.println("Грузоподъемность - от " + typeLoadCapacity.getFrom() + " до " + typeLoadCapacity.getTo() + " тонн");
+        }
     }
 
     @Override
@@ -37,6 +77,10 @@ public class Truck extends Transport implements Competing {
     @Override
     public void maxSpeed(double speed) {
         System.out.println("Максимальная скорость: " + speed);
+    }
+
+    public TypeLoadCapacity getTypeLoadCapacity() {
+        return typeLoadCapacity;
     }
 
     @Override
