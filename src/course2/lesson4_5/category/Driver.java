@@ -1,6 +1,7 @@
-package course2.lesson4;
+package course2.lesson4_5.category;
 
-import course2.lesson4.transport.Transport;
+import course2.lesson4_5.Main;
+import course2.lesson4_5.transport.Transport;
 
 import java.util.Objects;
 

@@ -1,8 +1,11 @@
-package course2.lesson4;
+package course2.lesson4_5;
 
-import course2.lesson4.transport.Bus;
-import course2.lesson4.transport.Car;
-import course2.lesson4.transport.Truck;
+import course2.lesson4_5.category.DriverCategoryB;
+import course2.lesson4_5.category.DriverCategoryC;
+import course2.lesson4_5.category.DriverCategoryD;
+import course2.lesson4_5.transport.Bus;
+import course2.lesson4_5.transport.Car;
+import course2.lesson4_5.transport.Truck;
 
 import java.time.LocalTime;
 

@@ -1,4 +1,4 @@
-package course2.lesson4.transport;
+package course2.lesson4_5.transport;
 
 import java.time.LocalTime;
 
