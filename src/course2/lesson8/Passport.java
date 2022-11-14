@@ -32,14 +32,8 @@ public class Passport {
     }
 
     public static void addPassport(Passport passport) {
-        Iterator<Passport> iterator = passports.iterator();
-        while (iterator.hasNext()) {
-            Passport curPassport = iterator.next();
-            if (curPassport.equals(passport)) {
-                iterator.remove();
-                passports.add(passport);
-                return;
-            }
+        if (passports.contains(passport)) {
+            passports.remove(passport);
         }
 
         passports.add(passport);

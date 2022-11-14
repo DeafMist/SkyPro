@@ -7,11 +7,10 @@ public class ProductsList {
     private final Set<Product> products = new HashSet<>();
 
     public void addProduct(Product product) {
-        for (Product value : products) {
-            if (value.getName().equals(product.getName())) {
-                throw new IllegalArgumentException("Продукт с таким именем уже есть в списке!");
-            }
+        if (products.contains(product)) {
+            throw new IllegalArgumentException("Продукт с таким именем уже есть в списке!");
         }
+
         products.add(product);
     }
 

@@ -1,10 +1,11 @@
 package course2.lesson8;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Recipe {
-    private static final List<String> BUZY_NAMES = new ArrayList<>();
+    private static final Set<String> BUZY_NAMES = new HashSet<>();
 
     private final String name;
 
@@ -43,6 +44,4 @@ public class Recipe {
     public int getTotalPrice() {
         return totalPrice;
     }
-
-
 }

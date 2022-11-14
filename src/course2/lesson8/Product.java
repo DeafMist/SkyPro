@@ -55,11 +55,6 @@ public class Product {
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, price, amount, isBought);
-    }
-
-    @Override
-    public String toString() {
-        return "Product{" + name + ", isBought=" + isBought + "}";
+        return Objects.hash(name);
     }
 }
