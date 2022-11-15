@@ -47,8 +47,21 @@ public class Main {
                 new Product("Яйцо", 50.0, 6.0),
                 new Product("Молоко", 70.0, 0.1));
 //        Recipe a = new Recipe("Яичница",
-//                new Product("Яйцо", 50.0, 6.0),
+//                new Product("Яйцо", 100.0, 3.3),
 //                new Product("Молоко", 70.0, 0.1));
+
+        Set<Recipe> recipesSet = new HashSet<>();
+        addRecipes(recipesSet, omlet, yaichniza);
+    }
+
+    private static void addRecipes(Set<Recipe> recipesSet, Recipe... recipes) {
+        for (Recipe recipe : recipes) {
+            if (recipesSet.contains(recipe)) {
+                throw new IllegalArgumentException("Рецепт с таким именем уже есть!");
+            }
+
+            recipesSet.add(recipe);
+        }
     }
 
     private static void task3() {
@@ -118,17 +131,18 @@ public class Main {
     }
 
     private static void task5() {
-        Set<Integer> mult = new HashSet<>();
+        Set<String> mult = new HashSet<>();
 
         int x1 = random.nextInt(10);
         int x2 = random.nextInt(10);
         for (int i = 0; i < 15; i++) {
-            while (mult.contains(x1 * x2)) {
+            while (mult.contains(x1 + "*" + x2) || mult.contains(x2 + "*" + x1)) {
                 x1 = random.nextInt(10);
                 x2 = random.nextInt(10);
             }
 
-            mult.add(x1 * x2);
+            mult.add(x1 + "*" + x2);
+            mult.add(x2 + "*" + x1);
             System.out.println(x1 + " * " + x2);
         }
     }

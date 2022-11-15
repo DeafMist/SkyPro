@@ -50,7 +50,7 @@ public class Product {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Product product = (Product) o;
-        return isBought == product.isBought && name.equals(product.name) && price.equals(product.price) && amount.equals(product.amount);
+        return name.equals(product.name);
     }
 
     @Override

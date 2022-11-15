@@ -2,14 +2,13 @@ package course2.lesson8;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 public class Recipe {
-    private static final Set<String> BUZY_NAMES = new HashSet<>();
-
     private final String name;
 
-    private final Product[] products;
+    private final Set<Product> products = new HashSet<>();
 
     private int totalPrice;
 
@@ -18,30 +17,36 @@ public class Recipe {
             throw new IllegalArgumentException("Заполните карточку рецепта полностью!");
         }
 
-        if (!BUZY_NAMES.contains(name)) {
-            BUZY_NAMES.add(name);
-        }
-        else {
-            throw new IllegalArgumentException("Рецепт с таким именем уже есть!");
-        }
-
         for (Product product : products) {
             totalPrice += product.getPrice();
+            this.products.add(product);
         }
 
         this.name = name;
-        this.products = products;
     }
 
     public String getName() {
         return name;
     }
 
-    public Product[] getProducts() {
+    public Set<Product> getProducts() {
         return products;
     }
 
     public int getTotalPrice() {
         return totalPrice;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Recipe recipe = (Recipe) o;
+        return name.equals(recipe.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
     }
 }
