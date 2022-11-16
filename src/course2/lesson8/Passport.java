@@ -32,10 +32,7 @@ public class Passport {
     }
 
     public static void addPassport(Passport passport) {
-        if (passports.contains(passport)) {
-            passports.remove(passport);
-        }
-
+        passports.remove(passport);
         passports.add(passport);
     }
 

@@ -14,7 +14,7 @@ public class Main {
     private static final Random random = new Random();
 
     public static void main(String[] args) {
-        task2();
+        task5();
     }
 
     private static void task1() {
@@ -133,17 +133,16 @@ public class Main {
     private static void task5() {
         Set<String> mult = new HashSet<>();
 
-        int x1 = random.nextInt(10);
-        int x2 = random.nextInt(10);
-        for (int i = 0; i < 15; i++) {
-            while (mult.contains(x1 + "*" + x2) || mult.contains(x2 + "*" + x1)) {
-                x1 = random.nextInt(10);
-                x2 = random.nextInt(10);
+        int count = 0;
+        while (count < 15) {
+            int x1 = random.nextInt(10);
+            int x2 = random.nextInt(10);
+            if (!mult.contains(x1 + "*" + x2) && !mult.contains(x2 + "*" + x1)) {
+                mult.add(x1 + "*" + x2);
+                mult.add(x2 + "*" + x1);
+                System.out.println(x1 + " * " + x2);
+                count++;
             }
-
-            mult.add(x1 + "*" + x2);
-            mult.add(x2 + "*" + x1);
-            System.out.println(x1 + " * " + x2);
         }
     }
 
