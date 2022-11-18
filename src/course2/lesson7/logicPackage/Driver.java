@@ -83,12 +83,12 @@ public class Driver <A extends Transport> {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Driver<?> driver = (Driver<?>) o;
-        return experience == driver.experience && fio.equals(driver.fio) && Objects.equals(license, driver.license) && Objects.equals(car, driver.car);
+        return experience == driver.experience && fio.equals(driver.fio) && license == driver.license;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(fio, license, experience, car);
+        return Objects.hash(fio, license, experience);
     }
 
     @Override
