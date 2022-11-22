@@ -83,7 +83,7 @@ public class Driver <A extends Transport> {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Driver<?> driver = (Driver<?>) o;
-        return experience == driver.experience && fio.equals(driver.fio) && license == driver.license;
+        return experience == driver.experience && fio.equals(driver.fio) && license.equals(driver.license);
     }
 
     @Override
