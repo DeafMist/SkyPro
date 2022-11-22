@@ -31,10 +31,6 @@ public class Product {
     }
 
     public void setBought(boolean bought) {
-        if (isBought || !bought) {
-            return;
-        }
-
         isBought = bought;
     }
 
