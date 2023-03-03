@@ -1,4 +1,4 @@
-package course5.lesson1;
+package course4.lesson1;
 
 import java.util.Comparator;
 import java.util.List;
